@@ -25,14 +25,20 @@
 			
 			<div id="wk-output">meanings appear here</div>
 			
+			<div class="footar">
+				
+				<a href="http://www.freecounterstat.com" title="free website counters"><img src="https://counter4.fcs.ovh/private/freecounterstat.php?c=be3d0635c0436a49d74cc96f3f8df096" border="0" title="free website counters" alt="free website counters"></a>
+				
+			</div>
+			
 		</div>
 		
 		<script>
-		
+			
 			function clearText(){
 				document.getElementById("inputText").value = "";
-				}
-		
+			}
+			
 			var output = $("#wk-output");
 			$("#inputText").on("change", function() {
 				getDictionaryInfo($(this).val(), "English", function(data) {

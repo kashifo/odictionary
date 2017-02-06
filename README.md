@@ -3,5 +3,5 @@ Whenever you want to know any meaning of english word just visit (http://tiny.cc
 
 It uses Wikitonary API to get meanings.
 
-Screenshot:
+**Screenshot : **
 ![Screenshot](https://raw.githubusercontent.com/kashifo/odictionary/master/shot.png)
