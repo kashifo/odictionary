@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<title>Online Dictionary</title>
+		<script src="parser.js"></script>
+		<link rel="stylesheet" href="main.css" />
+	</head>
+	
+	<body>
+		
+		<div align="center">
+			<br><br>
+			<h1>Online Dictionary</h1>
+			
+			<label for="name">TYPE A WORD AND ENTER:</label>
+			<input type="text" style="max-width:50%" name="name" id="inputText" autofocus/>
+			<br>
+			<ul class="actions">
+				<li><input type="submit" value="Search" class="special" /></li>
+				<li><input type="reset" value="Clear" onclick="clearText()" /></li>
+			</ul>
+			
+			
+			<div id="wk-output">meanings appear here</div>
+			
+			<div class="footar">
+				
+				<a href="http://www.freecounterstat.com" title="free website counters"><img src="https://counter4.fcs.ovh/private/freecounterstat.php?c=be3d0635c0436a49d74cc96f3f8df096" border="0" title="free website counters" alt="free website counters"></a>
+				
+			</div>
+			
+		</div>
+		
+		<script>
+			
+			function clearText(){
+				document.getElementById("inputText").value = "";
+			}
+			
+			var output = $("#wk-output");
+			$("#inputText").on("change", function() {
+				getDictionaryInfo($(this).val(), "English", function(data) {
+					output.html("");
+					
+					if(!data.definitions) {
+						output.html("<p>No meaning found for this word</p>");
+					}
+					
+					$("<h1>").appendTo(output).text(data.title);
+					
+					for (var i = 0; i < data.definitions.length; i++) {
+						//$("<p>").text(data.definitions[i].type + ": " + data.definitions[i].meaning).appendTo(output);
+						$("<p>").text( i+1 + ", " + data.definitions[i].meaning).appendTo(output);
+					}
+				});
+			});
+			
+		</script>
+	</body>
+	
+</html
